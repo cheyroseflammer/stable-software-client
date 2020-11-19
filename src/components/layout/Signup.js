@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import AuthApi from '../../services/auth-api';
+import AuthApiService from '../../services/auth-api';
 
-export default class Signup extends Component {
+class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +15,7 @@ export default class Signup extends Component {
   }
 
   handleLoginSuccess = (user) => {
-    window.location = '/';
+    window.location = '/homepage';
   };
 
   // signup event handlers
@@ -23,7 +23,7 @@ export default class Signup extends Component {
     event.preventDefault();
     const { registerUsername, registerPassword } = event.target;
     this.setState({ error: null });
-    AuthApi.postUser({
+    AuthApiService.postUser({
       email: registerUsername.value,
       password: registerPassword.value,
     })
@@ -65,7 +65,7 @@ export default class Signup extends Component {
     return (
       <section className="sign-up-component">
         <div className="sign-up-page">
-          <h1 className="sign-up-title">Welcome</h1>
+          <h1 className="sign-up-title">Register</h1>
           <div className="form-div-reg">
             <h3 className="header">Sign Up</h3>
             <form className="signup-form" onSubmit={this.handleSubmit}>
@@ -73,7 +73,6 @@ export default class Signup extends Component {
               <label htmlFor="username">Email</label>
               <input
                 className="sign-up-input"
-                id="username"
                 type="text"
                 name="registerUsername"
                 placeholder="email@email.com"
@@ -83,21 +82,24 @@ export default class Signup extends Component {
               <label htmlFor="password">Password</label>
               <input
                 className="sign-up-input"
-                id="password"
                 type="password"
                 name="registerPassword"
                 placeholder="password"
                 required
               />
+
               <button type="submit" className="sign-up-button">
-                Signup
+                Register
               </button>
             </form>
             <div className="link-register-div">
-              <p> Already Have An Account?</p>
-              <Link to="/login" className="login-link">
-                Log In
-              </Link>
+              <p>
+                {' '}
+                Already Have An Account?
+                <Link to="/log-in" className="login-link">
+                  Log In
+                </Link>
+              </p>
             </div>
           </div>
         </div>
@@ -105,3 +107,4 @@ export default class Signup extends Component {
     );
   }
 }
+export default SignUp;

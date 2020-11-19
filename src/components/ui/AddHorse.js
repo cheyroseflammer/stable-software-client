@@ -1,38 +1,80 @@
 import React, { Component } from 'react';
+import ApiContext from '../../ApiContext';
+import { Button, Input } from '../../Utilities/Utilities';
+import config from '../../config';
+import TokenService from '../../services/token-service';
 
 export default class AddHorse extends Component {
   static defaultProps = {
-    riders: [],
+    history: {
+      push: () => {},
+    },
   };
+  static contextType = ApiContext;
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const newHorse = {
+      name: e.target['horse-name'].value,
+      showname: e.target['horse-showname'].value,
+      age: e.target['horse-age'].value,
+      stall: e.target['horse-stall'].value,
+      rider_id: e.target['horse-rider-id'].value,
+    };
+    fetch(`${config.API_ENDPOINT}/horses`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        Authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify(newHorse),
+    })
+      .then((res) => {
+        if (!res.ok) return res.json().then((e) => Promise.reject(e));
+        return res.json();
+      })
+      .then((horse) => {
+        this.context.addHorse(horse);
+        this.props.history.push(`/rider/${horse.rider_id}`);
+      })
+      .catch((error) => {
+        console.log({ error });
+      });
+  };
+
   render() {
-    const { riders } = this.props;
+    const { riders = [] } = this.context;
     return (
       <section className="AddHorse">
         <h2>Add Horse</h2>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div className="field">
             <label htmlFor="horse-name-input">Name</label>
-            <input type="text" id="AddHorse-name-input" />
+            <Input type="text" id="AddHorse-name-input" name="horse-name" />
           </div>
           <div className="field">
             <label htmlFor="horse-showname-input">Show Name</label>
-            <input type="text" id="horse-showname-input" />
+            <Input
+              type="text"
+              id="horse-showname-input"
+              name="horse-showname"
+            />
           </div>
           <div className="field">
             <label htmlFor="horse-age-input">Age</label>
-            <input type="text" id="horse-age-input" />
+            <Input type="text" id="horse-age-input" name="horse-age" />
           </div>
           <div className="field">
             <label htmlFor="horse-stall-input">Stall</label>
-            <input type="text" id="horse-stall-input" />
+            <Input type="text" id="horse-stall-input" name="horse-stall" />
           </div>
           <div className="field">
             <label htmlFor="horse-breed-input">Breed</label>
-            <input type="text" id="horse-breed-input" />
+            <Input type="text" id="horse-breed-input" />
           </div>
           <div className="field">
             <label htmlFor="horse-rider-select">Rider</label>
-            <select id="horse-rider-select">
+            <select id="horse-rider-select" name="horse-rider-id">
               <option value={null}>...</option>
               {riders.map((rider) => (
                 <option key={rider.id} value={rider.id}>
@@ -41,9 +83,7 @@ export default class AddHorse extends Component {
               ))}
             </select>
           </div>
-          <div className="buttons">
-            <button type="submit">Add Horse</button>
-          </div>
+          <Button type="submit">Post Horse</Button>
         </form>
       </section>
     );

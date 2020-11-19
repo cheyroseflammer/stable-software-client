@@ -1,46 +1,41 @@
 import React, { Component } from 'react';
 import config from '../../config';
 import { Button, Input } from '../../Utilities/Utilities';
+import TokenService from '../../services/token-service';
+import ApiContext from '../../ApiContext';
 // import { render } from 'react-dom';
 
 export default class AddRider extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      id: '',
-      name: '',
-    };
-  }
+  static defaultProps = {
+    history: {
+      push: () => {},
+    },
+  };
+  static contextType = ApiContext;
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-
+  handleSubmit = (e) => {
+    e.preventDefault();
     const rider = {
-      id: this.state.id,
-      name: this.state.name,
+      name: e.target['rider-name'].value,
     };
-
     fetch(`${config.API_ENDPOINT}/riders`, {
       method: 'POST',
-      body: JSON.stringify(rider),
       headers: {
         'content-type': 'application/json',
+        Authorization: `bearer ${TokenService.getAuthToken()}`,
       },
+      body: JSON.stringify(rider),
     })
       .then((res) => {
-        if (!res.ok) {
-          return res.json().then((error) => {
-            throw error;
-          });
-        }
+        if (!res.ok) return res.json().then((e) => Promise.reject(e));
         return res.json();
       })
       .then((rider) => {
-        this.props.onAddRider(rider);
-        window.location = '/riders';
+        this.context.addRider(rider);
+        this.props.history.push(`/rider/${rider.id}`);
       })
       .catch((error) => {
-        console.log({ error });
+        console.error({ error });
       });
   };
 
@@ -51,7 +46,7 @@ export default class AddRider extends Component {
           <Input
             required
             aria-label="Add a rider..."
-            name="addRider"
+            name="rider-name"
             id="rider"
             cols="30"
             rows="1"
