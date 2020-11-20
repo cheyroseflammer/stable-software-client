@@ -14,7 +14,7 @@ import AddHorse from './components/ui/AddHorse';
 
 // pages
 import Home from './pages/Home';
-import Riders from './pages/Riders';
+import Riders from './pages/RidersList';
 import Horses from './pages/Horses';
 
 // styles
