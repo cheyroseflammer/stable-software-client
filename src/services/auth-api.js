@@ -1,6 +1,6 @@
 import config from '../config';
 
-const AuthApi = {
+const AuthApiServices = {
   postUser(user) {
     return fetch(`${config.API_ENDPOINT}/users`, {
       method: 'POST',
@@ -16,13 +16,13 @@ const AuthApi = {
         console.log('error:', err);
       });
   },
-  postLogin(creds) {
+  postLogin({ loginUsername, loginPassword }) {
     return fetch(`${config.API_ENDPOINT}/auth/login`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
       },
-      body: JSON.stringify(creds),
+      body: JSON.stringify({ loginUsername, loginPassword }),
     })
       .them((res) =>
         !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
@@ -32,4 +32,4 @@ const AuthApi = {
       });
   },
 };
-export default AuthApi;
+export default AuthApiServices;

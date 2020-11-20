@@ -3,6 +3,7 @@ import ApiContext from '../../ApiContext';
 import { Button, Input } from '../../Utilities/Utilities';
 import config from '../../config';
 import TokenService from '../../services/token-service';
+import StableForm from './StableForm';
 
 export default class AddHorse extends Component {
   static defaultProps = {
@@ -19,7 +20,7 @@ export default class AddHorse extends Component {
       showname: e.target['horse-showname'].value,
       age: e.target['horse-age'].value,
       stall: e.target['horse-stall'].value,
-      rider_id: e.target['horse-rider-id'].value,
+      riderId: e.target['horse-rider-id'].value,
     };
     fetch(`${config.API_ENDPOINT}/horses`, {
       method: 'POST',
@@ -35,7 +36,7 @@ export default class AddHorse extends Component {
       })
       .then((horse) => {
         this.context.addHorse(horse);
-        this.props.history.push(`/rider/${horse.rider_id}`);
+        this.props.history.push(`/rider/${horse.riderId}`);
       })
       .catch((error) => {
         console.log({ error });
@@ -47,7 +48,7 @@ export default class AddHorse extends Component {
     return (
       <section className="AddHorse">
         <h2>Add Horse</h2>
-        <form onSubmit={this.handleSubmit}>
+        <StableForm onSubmit={this.handleSubmit}>
           <div className="field">
             <label htmlFor="horse-name-input">Name</label>
             <Input type="text" id="AddHorse-name-input" name="horse-name" />
@@ -84,7 +85,7 @@ export default class AddHorse extends Component {
             </select>
           </div>
           <Button type="submit">Post Horse</Button>
-        </form>
+        </StableForm>
       </section>
     );
   }

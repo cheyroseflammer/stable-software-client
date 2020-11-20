@@ -3,6 +3,7 @@ import config from '../../config';
 import { Button, Input } from '../../Utilities/Utilities';
 import TokenService from '../../services/token-service';
 import ApiContext from '../../ApiContext';
+import StableForm from './StableForm';
 // import { render } from 'react-dom';
 
 export default class AddRider extends Component {
@@ -41,7 +42,7 @@ export default class AddRider extends Component {
 
   render() {
     return (
-      <form className="AddRider" onSubmit={this.handleSubmit}>
+      <StableForm className="AddRider" onSubmit={this.handleSubmit}>
         <div className="text">
           <Input
             required
@@ -54,7 +55,7 @@ export default class AddRider extends Component {
           ></Input>
         </div>
         <Button type="submit">Post Rider</Button>
-      </form>
+      </StableForm>
     );
   }
 }

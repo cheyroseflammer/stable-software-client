@@ -1,0 +1,37 @@
+import React from 'react';
+import ApiContext from '../ApiContext';
+import AddButton from '../components/ui/AddButton';
+import { findHorse, findRider } from '../helper';
+
+export default class HorsePageNav extends React.Component {
+  static defaultProps = {
+    history: {
+      goBack: () => {},
+    },
+    match: {
+      params: {},
+    },
+  };
+  static contextType = ApiContext;
+
+  render() {
+    const { horses, riders } = this.context;
+    const { horseId } = this.props.match.params;
+    const horse = findHorse(horses, horseId) || {};
+    const rider = findRider(riders, horse.riderId);
+    return (
+      <div className="HorseNav">
+        <AddButton
+          tags="button"
+          role="link"
+          onClick={() => this.props.history.goBack()}
+          className="back-button"
+        >
+          <br />
+          Back
+        </AddButton>
+        {rider && <h3 className="rider-name">{rider.name}</h3>}
+      </div>
+    );
+  }
+}

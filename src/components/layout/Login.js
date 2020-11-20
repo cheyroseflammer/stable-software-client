@@ -1,41 +1,110 @@
 import React, { Component } from 'react';
-import { Button, Input } from '../../Utilities/Utilities';
+import { Link } from 'react-router-dom';
+import AuthApiService from '../../services/auth-api';
 import '../../styles/Login.css';
+import TokenService from '../../services/token-service';
 
 export default class Login extends Component {
-  static defaultProps = {
-    onLoginSuccess: () => {},
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      params: {
+        loginUsername: '',
+        loginPassword: '',
+      },
+    };
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+
+    const { loginUsername, loginPassword } = event.target;
+
+    AuthApiService.postLogin({
+      email: loginUsername.value,
+      password: loginPassword.value,
+    })
+
+      .then((response) => {
+        TokenService.saveAuthToken(response.authToken);
+        TokenService.saveUserId(response.userId);
+        loginUsername.value = '';
+        loginPassword.value = '';
+        window.location = '/home';
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
-  state = { error: null };
+  validateloginUsername(inputEmail) {
+    let outputEmail = inputEmail;
+    let mailformat = /^\w+([-]?\w+)*@\w+([-]?\w+)*(\w{2,3})+$/;
+    if (!inputEmail.match(mailformat)) {
+      outputEmail = '';
+    }
+    return outputEmail;
+  }
 
-  handleSubmitBasicAuth = (ev) => {
-    ev.preventDefault();
-    const { user_name, password } = ev.target;
+  validateLoginPassword(inputLoginPassword) {
+    let outputLoginPassword = inputLoginPassword;
+    let loginPasswordFormat = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{8,}$/;
 
-    console.log('login form submitted');
-    console.log({ user_name, password });
-
-    user_name.value = '';
-    password.value = '';
-    this.props.onLoginSuccess();
-  };
+    if (!inputLoginPassword.match(loginPasswordFormat)) {
+      outputLoginPassword = '';
+    }
+    return outputLoginPassword;
+  }
 
   render() {
-    const { error } = this.state;
+    const errorMessage = this.state.error ? (
+      <p className="error-message">{this.state.error}</p>
+    ) : (
+      false
+    );
+
     return (
-      <form className="Login" onSubmit={this.handleSubmitBasicAuth}>
-        <div role="alert">{error && <p className="red">{error}</p>}</div>
-        <div className="user_name">
-          <label htmlFor="Login__user_name">User name</label>
-          <Input name="user_name" type="texta" id="Login__user_name"></Input>
+      <section className="login-component">
+        <div className="log-in-page">
+          <h3 className="subtitle">Log In</h3>
+          <div className="form-div">
+            <form className="login-form" onSubmit={this.handleSubmit}>
+              {errorMessage}
+
+              <label htmlFor="username">Email</label>
+              <input
+                className="login-input"
+                type="text"
+                name="loginUsername"
+                placeholder="email@email.com"
+                required
+              />
+
+              <label htmlFor="password">Password</label>
+              <input
+                className="login-input"
+                type="password"
+                name="loginPassword"
+                placeholder="password"
+                required
+              />
+
+              <button className="login-button" type="submit">
+                {/* <i class="fas fa-sign-in-alt"></i>  */}
+                Log In
+              </button>
+            </form>
+
+            <div className="link-register-div">
+              <p> No Account? </p>
+              <Link to="sign-up" className="register-link">
+                Sign Up
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="password">
-          <label htmlFor="Login__password">Password</label>
-          <Input name="password" type="password" id="Login__password"></Input>
-        </div>
-        <Button type="submit">Login</Button>
-      </form>
+      </section>
     );
   }
 }

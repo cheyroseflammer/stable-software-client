@@ -1,11 +1,13 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import config from './config';
+import ApiContext from './ApiContext';
 
 // layout
-import Nav from './components/layout/Navbar';
+// import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
-import Signup from './components/layout/Signup';
-import Login from './components/layout/Login';
+// import Signup from './components/layout/Signup';
+// import Login from './components/layout/Login';
 
 // ui
 import AddRider from './components/ui/AddRider';
@@ -13,33 +15,109 @@ import AddHorse from './components/ui/AddHorse';
 // import Schedule from '../inProgress/Schedule';
 
 // pages
-import Home from './pages/Home';
-import Riders from './pages/RidersList';
-import Horses from './pages/Horses';
+// import Home from './pages/Home';
+// import RidersList from './pages/RidersList';
+import HorseListMain from './pages/HorseListMain';
+import HorseListNav from './pages/HorseListNav';
+import HorsePageMain from './pages/HorsePageMain';
+import HorsePageNav from './pages/HorsePageNav';
 
 // styles
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <Router>
-        <Nav />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/home" exact component={Home} />
-          <Route path="/horses" exact component={Horses} />
-          <Route path="/riders" exact component={Riders} />
-          {/* <Route path="/schedule" exact component={Schedule} /> */}
-          <Route path="/login" exact component={Login} />
-          <Route path="/signup" exact component={Signup} />
-          <Route path="/addrider" exact component={AddRider} />
-          <Route path="/addhorse" exact component={AddHorse} />
-        </Switch>
-      </Router>
-      <Footer />
-    </div>
-  );
+class App extends Component {
+  state = {
+    horses: [],
+    riders: [],
+  };
+  componentDidMount() {
+    Promise.all([
+      fetch(`${config.API_ENDPOINT}/horses`),
+      fetch(`${config.API_ENDPOINT}/riders`),
+    ])
+      .then(([horsesRes, ridersRes]) => {
+        if (!horsesRes.ok)
+          return horsesRes.json().then((e) => Promise.reject(e));
+        if (!ridersRes.ok)
+          return ridersRes.json().then((e) => Promise.reject(e));
+
+        return Promise.all([horsesRes.json(), ridersRes.json()]);
+      })
+      .then(([horses, riders]) => {
+        this.setState({ horses, riders });
+      })
+      .catch((error) => {
+        console.error({ error });
+      });
+  }
+  handleAddRider = (rider) => {
+    this.setState({
+      riders: [...this.state.riders, rider],
+    });
+  };
+  handleAddHorse = (horse) => {
+    this.setState({
+      horses: [...this.state.horses, horse],
+    });
+  };
+  handleDeleteHorse = (horseId) => {
+    this.setState({
+      horses: this.state.horses.filter((horse) => horse.id !== horseId),
+    });
+  };
+  renderNavRoutes() {
+    return (
+      <>
+        <Router>
+          {['/', '/rider/:riderId'].map((path) => (
+            <Route exact key={path} path={path} component={HorseListNav} />
+          ))}
+          <Route path="/horse/:horseId" component={HorsePageNav} />
+          <Route path="/add-rider" component={HorsePageNav} />
+          <Route path="/add-horse" component={HorsePageNav} />
+        </Router>
+      </>
+    );
+  }
+  renderMainRoutes() {
+    return (
+      <>
+        <Router>
+          {['/', '/rider/:riderId'].map((path) => (
+            <Route exact key={path} path={path} component={HorseListMain} />
+          ))}
+          <Route path="/horse/:horseId" component={HorsePageMain} />
+          <Route path="/add-rider" component={AddRider} />
+          <Route path="/add-horse" component={AddHorse} />
+        </Router>
+      </>
+    );
+  }
+  render() {
+    const value = {
+      horses: this.state.horses,
+      riders: this.state.riders,
+      addRider: this.handleAddRider,
+      addHorse: this.handleAddHorse,
+      deleteHorse: this.handleDeleteHorse,
+    };
+    return (
+      <ApiContext.Provider value={value}>
+        <div className="App">
+          <Router>
+            <nav className="App-nav">{this.renderNavRoutes()}</nav>
+            <header className="App-header">
+              <h1>
+                <Link to="/">Stable Software</Link>{' '}
+              </h1>
+            </header>
+            <main className="App-main">{this.renderMainRoutes()}</main>
+          </Router>
+          <Footer />
+        </div>
+      </ApiContext.Provider>
+    );
+  }
 }
 
 export default App;
