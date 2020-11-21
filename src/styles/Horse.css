@@ -1,8 +1,6 @@
 .Horse {
-  --note-height: 88px;
   background-color: #010d1e;
   color: #cacaca;
-  height: var(--note-height);
   margin-bottom: 8px;
   max-width: 380px;
   padding: 8px 0 8px 8px;
@@ -10,18 +8,16 @@
 }
 
 .delete {
-  --note-button-height: 32px;
   background-color: #041a3a;
+  border-radius: 5px;
   border: 0;
   color: #bdbcbc;
   float: right;
   font-size: 12px;
-  height: var(--note-button-height);
+  padding: 10px;
+  margin-top: 0;
   position: relative;
-  top: calc((var(--note-button-height) + 32px) * -1);
-  transform-origin: right bottom;
-  transform: rotate(-90deg);
-  width: calc(var(--note-height));
+  transform-origin: right;
 }
 
 .delete:hover {
@@ -32,7 +28,6 @@
 }
 
 .horse-name {
-  font-family: var(--custom-font);
   font-size: 20px;
   margin: 0;
   max-width: 80%;
