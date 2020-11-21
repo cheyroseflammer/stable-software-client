@@ -1,0 +1,47 @@
+.Stable-form {
+  background-color: #e07a5f;
+  color: #dedede;
+  padding: 16px;
+  max-width: 332px;
+  border-radius: 5px;
+}
+.Stable-form label {
+  display: block;
+  font-size: 16px;
+  padding-bottom: 8px;
+}
+
+.Stable-form input,
+.Stable-form textarea,
+.Stable-form select {
+  font-size: 14px;
+  padding: 8px;
+  width: 300px;
+}
+.Stable-form select {
+  height: 33px;
+}
+
+.Stable-form > .field {
+  margin-bottom: 7px;
+}
+.Stable-form > .buttons {
+  margin-top: 26px;
+}
+
+.Stable-form button {
+  background-color: #010d1e;
+  border-radius: 6px;
+  border: 0;
+  color: #cacaca;
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+}
+.Stable-form button[type='submit']:hover {
+  background-color: #29862e;
+  color: white;
+}

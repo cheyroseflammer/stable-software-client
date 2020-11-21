@@ -2,6 +2,7 @@ import React from 'react';
 import ApiContext from '../ApiContext';
 import AddButton from '../components/ui/AddButton';
 import { findHorse, findRider } from '../helper';
+import '../styles/HorsePageNav.css';
 
 export default class HorsePageNav extends React.Component {
   static defaultProps = {
@@ -20,7 +21,7 @@ export default class HorsePageNav extends React.Component {
     const horse = findHorse(horses, horseId) || {};
     const rider = findRider(riders, horse.riderId);
     return (
-      <div className="HorseNav">
+      <div className="HorsePageNav">
         <AddButton
           tags="button"
           role="link"

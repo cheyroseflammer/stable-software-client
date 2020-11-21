@@ -68,28 +68,24 @@ class App extends Component {
   renderNavRoutes() {
     return (
       <>
-        <Router>
-          {['/', '/rider/:riderId'].map((path) => (
-            <Route exact key={path} path={path} component={HorseListNav} />
-          ))}
-          <Route path="/horse/:horseId" component={HorsePageNav} />
-          <Route path="/add-rider" component={HorsePageNav} />
-          <Route path="/add-horse" component={HorsePageNav} />
-        </Router>
+        {['/', '/rider/:riderId'].map((path) => (
+          <Route exact key={path} path={path} component={HorseListNav} />
+        ))}
+        <Route path="/horse/:horseId" component={HorsePageNav} />
+        <Route path="/add-rider" component={HorsePageNav} />
+        <Route path="/add-horse" component={HorsePageNav} />
       </>
     );
   }
   renderMainRoutes() {
     return (
       <>
-        <Router>
-          {['/', '/rider/:riderId'].map((path) => (
-            <Route exact key={path} path={path} component={HorseListMain} />
-          ))}
-          <Route path="/horse/:horseId" component={HorsePageMain} />
-          <Route path="/add-rider" component={AddRider} />
-          <Route path="/add-horse" component={AddHorse} />
-        </Router>
+        {['/', '/rider/:riderId'].map((path) => (
+          <Route exact key={path} path={path} component={HorseListMain} />
+        ))}
+        <Route path="/horse/:horseId" component={HorsePageMain} />
+        <Route path="/add-rider" component={AddRider} />
+        <Route path="/add-horse" component={AddHorse} />
       </>
     );
   }

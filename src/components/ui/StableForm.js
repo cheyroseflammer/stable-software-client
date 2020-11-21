@@ -1,10 +1,11 @@
 import React from 'react';
+import '../../styles/StableForm.css';
 
-export default function HorseForm(props) {
+export default function StableForm(props) {
   const { className, ...otherProps } = props;
   return (
     <form
-      className={['Horse=form', className].join(' ')}
+      className={['Stable-form', className].join(' ')}
       action="#"
       {...otherProps}
     />

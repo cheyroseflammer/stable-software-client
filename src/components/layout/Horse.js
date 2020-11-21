@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ApiContext from '../../ApiContext';
 import config from '../../config';
+import '../../styles/Horse.css';
 
 export default class Horse extends React.Component {
   static defaultProps = {

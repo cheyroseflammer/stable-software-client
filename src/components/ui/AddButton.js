@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../styles/AddButton.css';
 
 export default function AddButton(props) {
   const { tag, className, children, ...otherProps } = props;

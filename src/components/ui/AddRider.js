@@ -4,6 +4,7 @@ import { Button, Input } from '../../Utilities/Utilities';
 import TokenService from '../../services/token-service';
 import ApiContext from '../../ApiContext';
 import StableForm from './StableForm';
+import '../../styles/AddRider.css';
 // import { render } from 'react-dom';
 
 export default class AddRider extends Component {

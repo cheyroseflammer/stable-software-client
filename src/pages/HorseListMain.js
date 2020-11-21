@@ -4,6 +4,7 @@ import ApiContext from '../ApiContext';
 import { getHorsesForRider } from '../helper';
 import AddButton from '../components/ui/AddButton';
 import Horse from '../components/layout/Horse';
+import '../styles/HorseListMain.css';
 
 export default class HorseListMain extends React.Component {
   static defaultProps = {
@@ -34,16 +35,18 @@ export default class HorseListMain extends React.Component {
             </li>
           ))}
         </ul>
-        <div className="add-horse-button">
-          <AddButton
-            tag={Link}
-            to="/add-horse"
-            type="button"
-            className="add-horse-button"
-          >
-            <br />
-            Horse
-          </AddButton>
+        <div className="button-container">
+          <div className="add-horse-button">
+            <AddButton
+              tag={Link}
+              to="/add-horse"
+              type="button"
+              className="add-horse-button"
+            >
+              <br />
+              Horse
+            </AddButton>
+          </div>
         </div>
       </section>
     );

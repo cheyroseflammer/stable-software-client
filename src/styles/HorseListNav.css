@@ -1,0 +1,45 @@
+.HorseListNav {
+  list-style-type: none;
+  margin: 130px 0 0;
+  padding: 0;
+}
+
+.rider-link {
+  background-color: #e07a5f;
+  color: black;
+  display: block;
+  font-family: var(--custom-font);
+  font-size: 20px;
+  margin: 0 0 8px auto;
+  max-width: 180px;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.num-horses {
+  color: black;
+  display: block;
+  float: right;
+  font-size: 10px;
+}
+
+.rider-link:hover {
+  color: #ffb72f;
+  cursor: pointer;
+}
+
+.button-wrapper {
+  margin: 0 0 0 auto;
+  max-width: 180px;
+}
+.add-rider-button {
+  margin: 20px auto;
+}
+.add-rider-button:hover {
+  background-color: #29862e;
+  color: white;
+}
+
+.rider-link.active {
+  background-color: #3d405b;
+}

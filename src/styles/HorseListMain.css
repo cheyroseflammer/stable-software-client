@@ -1,0 +1,17 @@
+.HorseListMain ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+}
+
+.button-container {
+  max-width: 380px;
+  margin: 0 10px;
+}
+.add-horse-button {
+  margin: 0 auto 20px;
+}
+.add-horse-button:hover {
+  background-color: #29862e;
+  color: white;
+}
