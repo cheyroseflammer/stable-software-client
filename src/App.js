@@ -104,7 +104,7 @@ class App extends Component {
             <nav className="App-nav">{this.renderNavRoutes()}</nav>
             <header className="App-header">
               <h1>
-                <Link to="/">Stable Software</Link>{" "}
+                <Link to="/">STABLE SOFTWARE</Link>{" "}
               </h1>
             </header>
             <main className="App-main">{this.renderMainRoutes()}</main>
