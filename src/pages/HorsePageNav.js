@@ -1,8 +1,9 @@
-import React from 'react';
-import ApiContext from '../ApiContext';
-import AddButton from '../components/ui/AddButton';
-import { findHorse, findRider } from '../helper';
-import '../styles/HorsePageNav.css';
+import React from "react";
+import ApiContext from "../ApiContext";
+import AddButton from "../components/ui/AddButton";
+import { findHorse, findRider } from "../helper";
+import "../styles/HorsePageNav.css";
+import "../styles/AddButton.css";
 
 export default class HorsePageNav extends React.Component {
   static defaultProps = {
