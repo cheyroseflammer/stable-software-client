@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import '../../styles/Welcome.css';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import "../../styles/Welcome.css";
+import { Link } from "react-router-dom";
 
 export default class Welcome extends Component {
   render() {
@@ -16,7 +16,7 @@ export default class Welcome extends Component {
           View all your riders in one place with the option to expand and view
           each riders horse and schedule.
         </p>
-        <Link to="/signup">
+        <Link to="/main">
           <button>Get Started 🡲</button>
         </Link>
       </div>

@@ -30,17 +30,23 @@
 }
 
 .button-wrapper {
-  margin: 0 0 0 auto;
-  max-width: 180px;
+  margin: 0 0 0 140px;
+  max-width: fit-content;
+  background-color: darkblue;
+  border-radius: 5px;
+  padding: 5px;
 }
 .add-rider-button {
   margin: 20px auto;
+  color: white;
 }
 .add-rider-button:hover {
-  background-color: #29862e;
   color: white;
 }
 
 .rider-link.active {
   background-color: #3d405b;
+}
+li {
+  list-style-type: none;
 }
