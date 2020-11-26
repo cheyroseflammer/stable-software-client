@@ -16,10 +16,12 @@ export default class HorsePageMain extends React.Component {
     this.props.history.push(`/`);
   };
   render() {
-    const { age, stall } = this.props;
+    // const { age, stall } = this.props;
     const { horses = [] } = this.context;
     const { horseId } = this.props.match.params;
-    const horse = findHorse(horses, horseId) || { name: '' };
+    const horse = findHorse(horses, horseId) || { age: '', stall: '' };
+    console.log(horse, 'from horse page main');
+    console.log(this.context, 'from horse page main');
     return (
       <section className="HorsePageMain">
         <Horse
@@ -28,8 +30,8 @@ export default class HorsePageMain extends React.Component {
           age={horse.age}
           stall={horse.stall}
         />
-        <div className="age-content">{age}</div>
-        <div className="stall-content">{stall}</div>
+        <div className="age-content">Age: {horse.age}</div>
+        <div className="stall-content">Stall: {horse.stall}</div>
       </section>
     );
   }

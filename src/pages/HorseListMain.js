@@ -18,11 +18,10 @@ export default class HorseListMain extends React.Component {
     const { riderId } = this.props.match.params;
     const { horses = [] } = this.context;
     const horsesForRider = getHorsesForRider(horses, riderId);
-
     return (
       <section className="HorseListMain">
         <ul>
-          {horsesForRider.map((horse) => (
+          {horsesForRider.map((horse, index) => (
             <li key={horse.id}>
               <Horse
                 id={horse.id}

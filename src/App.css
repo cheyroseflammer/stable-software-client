@@ -20,9 +20,11 @@
   grid-area: header;
   padding-left: 16px;
   padding-top: 32px;
+  font-size: larger;
 }
 .App-header a {
   color: #3d405b;
+  text-decoration: none;
 }
 .App-main {
   background-color: #f4f1de;

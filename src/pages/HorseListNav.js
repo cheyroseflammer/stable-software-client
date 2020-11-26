@@ -9,6 +9,7 @@ export default class HorseListNav extends React.Component {
 
   render() {
     const { riders = [], horses = [] } = this.context;
+    console.log('horse, where?', horses);
     return (
       <div className="HorseListNav">
         <ul>

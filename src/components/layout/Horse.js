@@ -25,9 +25,9 @@ export default class Horse extends React.Component {
         return res.json();
       })
       .then(() => {
-        this.context.deleteNote(horseId);
+        this.context.deleteHorse(horseId);
         // allow parent to perform extra behaviour
-        this.props.onDeleteNote(horseId);
+        this.props.onDeleteHorse(horseId);
       })
       .catch((error) => {
         console.error({ error });
@@ -35,7 +35,11 @@ export default class Horse extends React.Component {
   };
   render() {
     const { name, id, age, stall } = this.props;
-
+    // console.log({ name }, 'this is an name? maybe');
+    // console.log({ id }, 'this is an id? maybe');
+    // console.log({ age }, 'this is an age? maybe');
+    // console.log({ stall }, 'this is an stall? maybe');
+    // console.log(this.context.horses, 'this is an props? maybe');
     return (
       <div className="horse">
         <h2 className="horse-name">
@@ -48,7 +52,9 @@ export default class Horse extends React.Component {
         >
           Remove
         </button>
-        <span className="horse-age">Age: {age}</span>
+        <p className="horse-age">
+          <span className="horse-age">Age: </span> {age}
+        </p>
         <span className="horse-stall">Stall Number: {stall}</span>
       </div>
     );
