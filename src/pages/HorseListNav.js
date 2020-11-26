@@ -1,9 +1,10 @@
-import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
-import ApiContext from '../ApiContext';
-import { countHorsesForRider } from '../helper';
-import AddButton from '../components/ui/AddButton';
-import '../styles/HorseListNav.css';
+import React from "react";
+import { NavLink, Link } from "react-router-dom";
+import ApiContext from "../ApiContext";
+import { countHorsesForRider } from "../helper";
+import AddButton from "../components/ui/AddButton";
+import "../styles/HorseListNav.css";
+import "../styles/AddButton.css";
 export default class HorseListNav extends React.Component {
   static contextType = ApiContext;
 

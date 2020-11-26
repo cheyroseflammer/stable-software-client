@@ -1,10 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import ApiContext from '../ApiContext';
-import { getHorsesForRider } from '../helper';
-import AddButton from '../components/ui/AddButton';
-import Horse from '../components/layout/Horse';
-import '../styles/HorseListMain.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import ApiContext from "../ApiContext";
+import { getHorsesForRider } from "../helper";
+import AddButton from "../components/ui/AddButton";
+import Horse from "../components/layout/Horse";
+import "../styles/HorseListMain.css";
+import "../styles/AddButton.css";
 
 export default class HorseListMain extends React.Component {
   static defaultProps = {
@@ -41,7 +42,7 @@ export default class HorseListMain extends React.Component {
               tag={Link}
               to="/add-horse"
               type="button"
-              className="add-horse-button"
+              className="button"
             >
               <br />
               Horse
