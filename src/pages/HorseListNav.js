@@ -5,12 +5,13 @@ import { countHorsesForRider } from "../helper";
 import AddButton from "../components/ui/AddButton";
 import "../styles/HorseListNav.css";
 import "../styles/AddButton.css";
+import { Button } from "../Utilities/Utilities";
 export default class HorseListNav extends React.Component {
   static contextType = ApiContext;
 
   render() {
     const { riders = [], horses = [] } = this.context;
-    console.log('horse, where?', horses);
+    console.log("horse, where?", horses);
     return (
       <div className="HorseListNav">
         <ul>

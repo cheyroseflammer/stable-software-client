@@ -41,10 +41,10 @@ export default class HorseListMain extends React.Component {
               tag={Link}
               to="/add-horse"
               type="button"
-              className="button"
+              className="add-horse-button"
             >
               <br />
-              Horse
+              Add Horse
             </AddButton>
           </div>
         </div>

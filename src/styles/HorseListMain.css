@@ -5,11 +5,11 @@
 }
 
 .button-container {
-  max-width: 380px;
+  max-width: fit-content;
   margin: 0 10px;
 }
 .add-horse-button {
-  margin: 0 auto 20px;
+  margin: 0 auto;
 }
 .add-horse-button:hover {
   background-color: #29862e;

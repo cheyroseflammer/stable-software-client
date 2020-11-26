@@ -1,5 +1,5 @@
-import React from 'react';
-import '../../styles/AddButton.css';
+import React from "react";
+import "../../styles/AddButton.css";
 
 export default function AddButton(props) {
   const { tag, className, children, ...otherProps } = props;
@@ -7,7 +7,7 @@ export default function AddButton(props) {
   return React.createElement(
     props.tag,
     {
-      className: ['Button', props.className].join(' '),
+      className: ["Button", props.className].join(" "),
       ...otherProps,
     },
     props.children
@@ -15,5 +15,5 @@ export default function AddButton(props) {
 }
 
 AddButton.defaultProps = {
-  tag: 'a',
+  tag: "a",
 };
