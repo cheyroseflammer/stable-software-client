@@ -1,7 +1,9 @@
 .HorseListMain ul {
   list-style-type: none;
   margin: 0;
-  padding: 15px;
+  padding: 30px;
+  background-color: #deb887;
+  border-radius: 5px;
 }
 
 .button-container {

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { InlineIcon } from "@iconify/react";
+import horseshoeIcon from "@iconify-icons/mdi/horseshoe";
 import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 import config from "./config";
 import ApiContext from "./ApiContext";
@@ -104,7 +106,10 @@ class App extends Component {
             <nav className="App-nav">{this.renderNavRoutes()}</nav>
             <header className="App-header">
               <h1>
-                <Link to="/">STABLE SOFTWARE</Link>{" "}
+                <Link to="/">
+                  <InlineIcon icon={horseshoeIcon} /> STABLE SOFTWARE{" "}
+                  <InlineIcon icon={horseshoeIcon} />
+                </Link>{" "}
               </h1>
             </header>
             <main className="App-main">{this.renderMainRoutes()}</main>
