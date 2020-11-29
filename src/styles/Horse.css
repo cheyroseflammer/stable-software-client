@@ -32,13 +32,13 @@
 }
 
 .horse-name a {
-  color: black;
+  color: white;
   display: block;
   text-decoration: none;
   padding: 5px;
 }
 .horse-name a:hover {
-  color: #ffb72f;
+  color: #c8e373;
 }
 
 .horse-age {

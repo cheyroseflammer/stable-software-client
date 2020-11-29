@@ -30,8 +30,9 @@ export default class HorsePageMain extends React.Component {
           age={horse.age}
           stall={horse.stall}
         />
-        <div className="age-content">Age: {horse.age}</div>
-        <div className="stall-content">Stall: {horse.stall}</div>
+        <div className="horse-content">
+          Age: {horse.age} Stall: {horse.stall}
+        </div>
       </section>
     );
   }

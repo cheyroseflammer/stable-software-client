@@ -1,6 +1,6 @@
 .Stable-form {
-  background-color: #e07a5f;
-  color: #dedede;
+  background-color: #c8e373;
+  color: black;
   padding: 16px;
   max-width: 332px;
   border-radius: 5px;
@@ -30,7 +30,7 @@
 }
 
 .Stable-form button {
-  background-color: #010d1e;
+  background-color: black;
   border-radius: 6px;
   border: 0;
   color: #cacaca;
@@ -41,7 +41,7 @@
   text-align: center;
   text-decoration: none;
 }
-.Stable-form button[type='submit']:hover {
+.Stable-form button[type="submit"]:hover {
   background-color: #29862e;
   color: white;
 }
