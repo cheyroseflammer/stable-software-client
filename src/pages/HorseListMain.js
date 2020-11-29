@@ -46,7 +46,6 @@ export default class HorseListMain extends React.Component {
               type="button"
               className="add-horse-button"
             >
-              <br />
               Add Horse
             </AddButton>
           </div>

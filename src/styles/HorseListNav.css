@@ -40,9 +40,11 @@
 .add-rider-button {
   margin: 20px auto;
   color: white;
+  text-decoration: none;
 }
 .add-rider-button:hover {
   color: white;
+  text-decoration: underline;
 }
 
 .rider-link.active {
