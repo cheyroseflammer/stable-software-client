@@ -31,7 +31,6 @@
 }
 
 .button-wrapper {
-<<<<<<< HEAD
   margin: 0 0 0 140px;
   max-width: fit-content;
   background-color: #284d3b;
@@ -42,13 +41,6 @@
   margin: 20px auto;
   color: white;
   text-decoration: none;
-=======
-  margin: 0 0 0 auto;
-  max-width: 180px;
-}
-.add-rider-button {
-  margin: 20px auto;
->>>>>>> parent of 6dbc49e... button changes
 }
 .add-rider-button:hover {
   background-color: #29862e;

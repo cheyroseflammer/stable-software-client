@@ -21,11 +21,7 @@ export default class HorsePageMain extends React.Component {
     const { horseId } = this.props.match.params;
     const horse = findHorse(horses, horseId) || { age: '', stall: '' };
     console.log(horse, 'from horse page main');
-<<<<<<< HEAD
-    //console.log(this.context, 'from horse page main');
-=======
     console.log(this.context, 'from horse page main');
->>>>>>> parent of 6dbc49e... button changes
     return (
       <section className="HorsePageMain">
         <Horse
@@ -36,14 +32,9 @@ export default class HorsePageMain extends React.Component {
           showname={horse.showname}
           onDeleteHorse={this.handleDeleteHorse}
         />
-<<<<<<< HEAD
-        {/* <div className="age-content">Age: {horse.age}</div>
-        <div className="stall-content">Stall: {horse.stall}</div> */}
-=======
         <div className="horse-content">
           Age: {horse.age} Stall: {horse.stall}
         </div>
->>>>>>> 846e3d503fbed297d58baaea29844ca8553199d9
       </section>
     );
   }
