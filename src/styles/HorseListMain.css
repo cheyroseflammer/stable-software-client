@@ -1,13 +1,18 @@
 .HorseListMain ul {
   list-style-type: none;
   margin: 0;
+<<<<<<< HEAD
   padding: 30px;
   background-color: black;
   border-radius: 5px;
+=======
+  padding: 10px;
+>>>>>>> parent of 6dbc49e... button changes
 }
 
 .button-container {
   max-width: fit-content;
+<<<<<<< HEAD
   background-color: #284d3b;
   padding: 0px 1px 0px 1px;
   border-radius: 5px;
@@ -16,8 +21,15 @@
   margin: 20px auto;
   color: white;
   text-decoration: none;
+=======
+  margin: 0 10px;
+}
+.add-horse-button {
+  margin: 0 auto;
+>>>>>>> parent of 6dbc49e... button changes
 }
 .add-horse-button:hover {
+  background-color: #29862e;
   color: white;
   text-decoration: underline;
 }

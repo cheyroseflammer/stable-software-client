@@ -21,7 +21,11 @@ export default class HorsePageMain extends React.Component {
     const { horseId } = this.props.match.params;
     const horse = findHorse(horses, horseId) || { age: '', stall: '' };
     console.log(horse, 'from horse page main');
+<<<<<<< HEAD
     //console.log(this.context, 'from horse page main');
+=======
+    console.log(this.context, 'from horse page main');
+>>>>>>> parent of 6dbc49e... button changes
     return (
       <section className="HorsePageMain">
         <Horse
