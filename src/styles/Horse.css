@@ -4,17 +4,22 @@
   margin-bottom: 8px;
   max-width: 380px;
   padding: 8px 0 8px 8px;
+  /* display: block; */
   /* position: relative; */
+}
+.horse-info-group {
+  display: inline;
 }
 
 .delete {
-  background-color: #041a3a;
+  background-color: #506e04;
   border-radius: 5px;
   border: 0;
-  color: #bdbcbc;
-  font-size: 12px;
+  color: white;
+  font-size: 15px;
   padding: 10px;
   margin-top: 0;
+  margin-bottom: 10px;
 }
 
 .delete:hover {
@@ -32,24 +37,24 @@
 }
 
 .horse-name a {
-  color: black;
+  color: white;
   display: block;
   text-decoration: none;
-  padding: 5px;
+  /* padding: 5px ; */
 }
 .horse-name a:hover {
-  color: #ffb72f;
+  color: #c8e373;
 }
 
 .horse-age {
-  bottom: 8px;
-  color: black;
+  /* bottom: 8px; */
+  color: white;
   font-size: 14px;
-  position: absolute;
+  /*position: absolute;*/
 }
 .horse-stall {
-  bottom: 8px;
-  color: black;
+  /* bottom: 8px; */
+  color: white;
   font-size: 14px;
-  position: absolute;
+  /* position: absolute; */
 }
