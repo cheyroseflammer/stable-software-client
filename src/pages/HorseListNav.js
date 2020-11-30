@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import ApiContext from '../ApiContext';
@@ -6,6 +7,18 @@ import AddButton from '../components/ui/AddButton';
 import '../styles/HorseListNav.css';
 import '../styles/AddButton.css';
 import { Button } from '../Utilities/Utilities';
+=======
+import React from "react";
+import { NavLink, Link } from "react-router-dom";
+import ApiContext from "../ApiContext";
+import { countHorsesForRider } from "../helper";
+import AddButton from "../components/ui/AddButton";
+import "../styles/HorseListNav.css";
+import "../styles/AddButton.css";
+import { Icon, InlineIcon } from "@iconify/react";
+import horseHuman from "@iconify-icons/mdi/horse-human";
+
+>>>>>>> 846e3d503fbed297d58baaea29844ca8553199d9
 export default class HorseListNav extends React.Component {
   static contextType = ApiContext;
 
@@ -22,7 +35,7 @@ export default class HorseListNav extends React.Component {
                 <span className="num-horses">
                   {countHorsesForRider(horses, rider.id)}
                 </span>
-                {rider.name}
+                <InlineIcon icon={horseHuman} /> {rider.name}
               </NavLink>
             </li>
           ))}

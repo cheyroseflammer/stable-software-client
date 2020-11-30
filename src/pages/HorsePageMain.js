@@ -32,8 +32,14 @@ export default class HorsePageMain extends React.Component {
           showname={horse.showname}
           onDeleteHorse={this.handleDeleteHorse}
         />
+<<<<<<< HEAD
         {/* <div className="age-content">Age: {horse.age}</div>
         <div className="stall-content">Stall: {horse.stall}</div> */}
+=======
+        <div className="horse-content">
+          Age: {horse.age} Stall: {horse.stall}
+        </div>
+>>>>>>> 846e3d503fbed297d58baaea29844ca8553199d9
       </section>
     );
   }

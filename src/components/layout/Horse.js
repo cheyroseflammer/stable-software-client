@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ApiContext from '../../ApiContext';
@@ -5,6 +6,15 @@ import config from '../../config';
 import '../../styles/Horse.css';
 import { InlineIcon } from '@iconify/react';
 import trashCan from '@iconify-icons/mdi/trash-can';
+=======
+import React from "react";
+import { Link } from "react-router-dom";
+import ApiContext from "../../ApiContext";
+import config from "../../config";
+import "../../styles/Horse.css";
+import { InlineIcon } from "@iconify/react";
+import trashCan from "@iconify-icons/mdi/trash-can";
+>>>>>>> 846e3d503fbed297d58baaea29844ca8553199d9
 
 export default class Horse extends React.Component {
   static defaultProps = {
@@ -17,9 +27,9 @@ export default class Horse extends React.Component {
     const horseId = this.props.id;
 
     fetch(`${config.API_ENDPOINT}/horses/${horseId}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
-        'content-type': 'application/json',
+        "content-type": "application/json",
       },
     })
       .then((res) => {
