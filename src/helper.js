@@ -2,7 +2,7 @@ export const findRider = (riders = [], riderId) =>
   riders.find((rider) => rider.id === riderId);
 
 export const findHorse = (horses = [], horseId) =>
-  horses.find((horse) => horses.id === horseId);
+  horses.find((horse) => horse.id === parseInt(horseId));
 
 export const getHorsesForRider = (horses = [], riderId) =>
   !riderId

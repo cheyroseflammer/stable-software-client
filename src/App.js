@@ -1,31 +1,29 @@
-import React, { Component } from "react";
-import { InlineIcon } from "@iconify/react";
-import horseshoeIcon from "@iconify-icons/mdi/horseshoe";
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
-import config from "./config";
-import ApiContext from "./ApiContext";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import config from './config';
+import ApiContext from './ApiContext';
 
 // layout
 // import Navbar from './components/layout/Navbar';
-import Footer from "./components/layout/Footer";
+import Footer from './components/layout/Footer';
 // import Signup from './components/layout/Signup';
 // import Login from './components/layout/Login';
 
 // ui
-import AddRider from "./components/ui/AddRider";
-import AddHorse from "./components/ui/AddHorse";
+import AddRider from './components/ui/AddRider';
+import AddHorse from './components/ui/AddHorse';
 // import Schedule from '../inProgress/Schedule';
 
 // pages
 // import Home from './pages/Home';
 // import RidersList from './pages/RidersList';
-import HorseListMain from "./pages/HorseListMain";
-import HorseListNav from "./pages/HorseListNav";
-import HorsePageMain from "./pages/HorsePageMain";
-import HorsePageNav from "./pages/HorsePageNav";
+import HorseListMain from './pages/HorseListMain';
+import HorseListNav from './pages/HorseListNav';
+import HorsePageMain from './pages/HorsePageMain';
+import HorsePageNav from './pages/HorsePageNav';
 
 // styles
-import "./App.css";
+import './App.css';
 
 class App extends Component {
   state = {
@@ -70,7 +68,7 @@ class App extends Component {
   renderNavRoutes() {
     return (
       <>
-        {["/", "/rider/:riderId"].map((path) => (
+        {['/', '/rider/:riderId'].map((path) => (
           <Route exact key={path} path={path} component={HorseListNav} />
         ))}
         <Route path="/horse/:horseId" component={HorsePageNav} />
@@ -82,7 +80,7 @@ class App extends Component {
   renderMainRoutes() {
     return (
       <>
-        {["/", "/rider/:riderId"].map((path) => (
+        {['/', '/rider/:riderId'].map((path) => (
           <Route exact key={path} path={path} component={HorseListMain} />
         ))}
         <Route path="/horse/:horseId" component={HorsePageMain} />
@@ -106,10 +104,7 @@ class App extends Component {
             <nav className="App-nav">{this.renderNavRoutes()}</nav>
             <header className="App-header">
               <h1>
-                <Link to="/">
-                  <InlineIcon icon={horseshoeIcon} /> STABLE SOFTWARE{" "}
-                  <InlineIcon icon={horseshoeIcon} />
-                </Link>{" "}
+                <Link to="/">Stable Software</Link>{' '}
               </h1>
             </header>
             <main className="App-main">{this.renderMainRoutes()}</main>

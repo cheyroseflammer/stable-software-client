@@ -18,6 +18,7 @@
   text-decoration: none;
 }
 .add-horse-button:hover {
+  background-color: #29862e;
   color: white;
   text-decoration: underline;
 }

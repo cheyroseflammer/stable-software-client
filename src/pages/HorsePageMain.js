@@ -1,8 +1,8 @@
-import React from "react";
-import ApiContext from "../ApiContext";
-import Horse from "../components/layout/Horse";
-import { findHorse } from "../helper";
-import "../styles/HorsePageMain.css";
+import React from 'react';
+import ApiContext from '../ApiContext';
+import Horse from '../components/layout/Horse';
+import { findHorse } from '../helper';
+import '../styles/HorsePageMain.css';
 
 export default class HorsePageMain extends React.Component {
   static defaultProps = {
@@ -19,9 +19,9 @@ export default class HorsePageMain extends React.Component {
     // const { age, stall } = this.props;
     const { horses = [] } = this.context;
     const { horseId } = this.props.match.params;
-    const horse = findHorse(horses, horseId) || { age: "", stall: "" };
-    console.log(horse, "from horse page main");
-    console.log(this.context, "from horse page main");
+    const horse = findHorse(horses, horseId) || { age: '', stall: '' };
+    console.log(horse, 'from horse page main');
+    console.log(this.context, 'from horse page main');
     return (
       <section className="HorsePageMain">
         <Horse
@@ -29,6 +29,8 @@ export default class HorsePageMain extends React.Component {
           name={horse.name}
           age={horse.age}
           stall={horse.stall}
+          showname={horse.showname}
+          onDeleteHorse={this.handleDeleteHorse}
         />
         <div className="horse-content">
           Age: {horse.age} Stall: {horse.stall}

@@ -43,13 +43,11 @@
   text-decoration: none;
 }
 .add-rider-button:hover {
+  background-color: #29862e;
   color: white;
   text-decoration: underline;
 }
 
 .rider-link.active {
   background-color: #3d405b;
-}
-li {
-  list-style-type: none;
 }

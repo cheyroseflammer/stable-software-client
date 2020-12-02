@@ -1,10 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import ApiContext from "../../ApiContext";
-import config from "../../config";
-import "../../styles/Horse.css";
-import { InlineIcon } from "@iconify/react";
-import trashCan from "@iconify-icons/mdi/trash-can";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import ApiContext from '../../ApiContext';
+import config from '../../config';
+import '../../styles/Horse.css';
+import { InlineIcon } from '@iconify/react';
+import trashCan from '@iconify-icons/mdi/trash-can';
 
 export default class Horse extends React.Component {
   static defaultProps = {
@@ -17,9 +17,9 @@ export default class Horse extends React.Component {
     const horseId = this.props.id;
 
     fetch(`${config.API_ENDPOINT}/horses/${horseId}`, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: {
-        "content-type": "application/json",
+        'content-type': 'application/json',
       },
     })
       .then((res) => {
@@ -36,17 +36,18 @@ export default class Horse extends React.Component {
       });
   };
   render() {
-    const { name, id, age, stall } = this.props;
-    // console.log({ name }, 'this is an name? maybe');
-    // console.log({ id }, 'this is an id? maybe');
-    // console.log({ age }, 'this is an age? maybe');
-    // console.log({ stall }, 'this is an stall? maybe');
-    // console.log(this.context.horses, 'this is an props? maybe');
+    const { name, id, age, stall, showname, breed } = this.props;
     return (
       <div className="horse">
-        <h2 className="horse-name">
-          <Link to={`/horse/${id}`}>{name}</Link>
-        </h2>
+        <div className="horse-info-group">
+          <h2 className="horse-name">
+            <Link to={`/horse/${id}`}>Name: {name}</Link>
+          </h2>
+          <p className="horse-age">Age: {age}</p>
+          <p className="horse-stall">Stall Number: {stall}</p>
+          <p className="horse-stall">Showname: {showname}</p>
+          {/* <p className="horse-stall">Breed: {breed}</p> */}
+        </div>
         <button
           className="delete"
           type="button"
@@ -54,10 +55,10 @@ export default class Horse extends React.Component {
         >
           Trash <InlineIcon icon={trashCan} />
         </button>
-        <p className="horse-age">
+        {/* <p className="horse-age">
           <span className="horse-age">Age: </span> {age}
         </p>
-        <span className="horse-stall">Stall Number: {stall}</span>
+        <span className="horse-stall">Stall Number: {stall}</span> */}
       </div>
     );
   }
