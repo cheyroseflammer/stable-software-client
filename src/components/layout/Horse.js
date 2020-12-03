@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import ApiContext from '../../ApiContext';
-import config from '../../config';
-import '../../styles/Horse.css';
-import { InlineIcon } from '@iconify/react';
-import trashCan from '@iconify-icons/mdi/trash-can';
+import React from "react";
+import { Link } from "react-router-dom";
+import ApiContext from "../../ApiContext";
+import config from "../../config";
+import "../../styles/Horse.css";
+import { InlineIcon } from "@iconify/react";
+import trashCan from "@iconify-icons/mdi/trash-can";
 
 export default class Horse extends React.Component {
   static defaultProps = {
@@ -17,14 +17,10 @@ export default class Horse extends React.Component {
     const horseId = this.props.id;
 
     fetch(`${config.API_ENDPOINT}/horses/${horseId}`, {
-      method: 'DELETE',
-      headers: {
-        'content-type': 'application/json',
-      },
+      method: "DELETE",
     })
       .then((res) => {
         if (!res.ok) return res.json().then((e) => Promise.reject(e));
-        return res.json();
       })
       .then(() => {
         this.context.deleteHorse(horseId);
