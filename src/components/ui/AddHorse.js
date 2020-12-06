@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import ApiContext from '../../ApiContext';
-import { Button, Input } from '../../Utilities/Utilities';
-import config from '../../config';
-import TokenService from '../../services/token-service';
-import StableForm from './StableForm';
+import React, { Component } from "react";
+import ApiContext from "../../ApiContext";
+import { Button, Input } from "../../Utilities/Utilities";
+import config from "../../config";
+// import TokenService from "../../services/token-service";
+import StableForm from "./StableForm";
 
 export default class AddHorse extends Component {
   static defaultProps = {
@@ -16,17 +16,17 @@ export default class AddHorse extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const newHorse = {
-      name: e.target['horse-name'].value,
-      showname: e.target['horse-showname'].value,
-      age: e.target['horse-age'].value,
-      stall: e.target['horse-stall'].value,
-      riderId: e.target['horse-rider-id'].value,
+      name: e.target["horse-name"].value,
+      showname: e.target["horse-showname"].value,
+      age: e.target["horse-age"].value,
+      stall: e.target["horse-stall"].value,
+      riderId: e.target["horse-rider-id"].value,
     };
     fetch(`${config.API_ENDPOINT}/horses`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'content-type': 'application/json',
-        Authorization: `bearer ${TokenService.getAuthToken()}`,
+        "content-type": "application/json",
+        // Authorization: `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify(newHorse),
     })

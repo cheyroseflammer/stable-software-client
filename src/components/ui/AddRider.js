@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import config from '../../config';
-import { Button, Input } from '../../Utilities/Utilities';
-import TokenService from '../../services/token-service';
-import ApiContext from '../../ApiContext';
-import StableForm from './StableForm';
-import '../../styles/AddRider.css';
+import React, { Component } from "react";
+import config from "../../config";
+import { Button, Input } from "../../Utilities/Utilities";
+// import TokenService from "../../services/token-service";
+import ApiContext from "../../ApiContext";
+import StableForm from "./StableForm";
+import "../../styles/AddRider.css";
 // import { render } from 'react-dom';
 
 export default class AddRider extends Component {
@@ -18,13 +18,13 @@ export default class AddRider extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const rider = {
-      name: e.target['rider-name'].value,
+      name: e.target["rider-name"].value,
     };
     fetch(`${config.API_ENDPOINT}/riders`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'content-type': 'application/json',
-        Authorization: `bearer ${TokenService.getAuthToken()}`,
+        "content-type": "application/json",
+        // Authorization: `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify(rider),
     })

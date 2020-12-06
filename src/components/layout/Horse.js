@@ -32,7 +32,7 @@ export default class Horse extends React.Component {
       });
   };
   render() {
-    const { name, id, age, stall, showname, breed } = this.props;
+    const { name, id, age, stall, showname } = this.props;
     return (
       <div className="horse">
         <div className="horse-info-group">

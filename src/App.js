@@ -14,6 +14,7 @@ import Footer from "./components/layout/Footer";
 // ui
 import AddRider from "./components/ui/AddRider";
 import AddHorse from "./components/ui/AddHorse";
+import EditHorse from "./components/ui/EditHorse";
 // import Schedule from '../inProgress/Schedule';
 
 // pages
@@ -88,6 +89,7 @@ class App extends Component {
         <Route path="/horse/:horseId" component={HorsePageMain} />
         <Route path="/add-rider" component={AddRider} />
         <Route path="/add-horse" component={AddHorse} />
+        <Route path="/edit/:horseId" component={EditHorse} />
       </>
     );
   }
@@ -98,6 +100,7 @@ class App extends Component {
       addRider: this.handleAddRider,
       addHorse: this.handleAddHorse,
       deleteHorse: this.handleDeleteHorse,
+      updateHorse: this.updateHorse,
     };
     return (
       <ApiContext.Provider value={value}>

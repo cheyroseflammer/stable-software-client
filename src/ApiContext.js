@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export default React.createContext({
   horses: [],
@@ -6,4 +6,5 @@ export default React.createContext({
   addRider: () => {},
   addHorse: () => {},
   deleteHorse: () => {},
+  updateHorse: () => {},
 });

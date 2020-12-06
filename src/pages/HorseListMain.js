@@ -6,8 +6,8 @@ import AddButton from "../components/ui/AddButton";
 import Horse from "../components/layout/Horse";
 import "../styles/HorseListMain.css";
 import "../styles/AddButton.css";
-import { InlineIcon } from "@iconify/react";
-import horseIcon from "@iconify-icons/mdi/horse";
+// import { InlineIcon } from "@iconify/react";
+// import horseIcon from "@iconify-icons/mdi/horse";
 
 export default class HorseListMain extends React.Component {
   static defaultProps = {
