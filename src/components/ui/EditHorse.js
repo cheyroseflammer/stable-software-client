@@ -3,16 +3,10 @@ import ApiContext from "../../ApiContext";
 import config from "../../config";
 import { Button, Input } from "../../Utilities/Utilities";
 import StableForm from "./StableForm";
-import PropTypes from "prop-types";
 
 export default class EditHorse extends Component {
   static propTypes = {
-    match: PropTypes.shape({
-      params: PropTypes.object,
-    }),
-    history: PropTypes.shape({
-      push: PropTypes.func,
-    }).isRequired,
+    updatedHorse: () => {},
   };
   // CONTEXT //
   static contextType = ApiContext;
@@ -28,8 +22,8 @@ export default class EditHorse extends Component {
     riderId: "",
   };
   componentDidMount() {
-    const { horseId } = this.props.match.params;
-    fetch(config.API_ENDPOINT + `/${horseId}`, {
+    const horseId = this.props.id;
+    fetch(`${config.API_ENDPOINT}/horses/${horseId}`, {
       method: "GET",
     })
       .then((res) => {
@@ -71,15 +65,15 @@ export default class EditHorse extends Component {
   // HANDLE SUBMIT FUNCTION //
   handleSubmit = (e) => {
     e.preventDeafult();
-    const { horseId } = this.props.match.params;
+    const { horseId } = this.props.match.params.horseId;
     const { id, name, showname, age, stall, riderId } = this.state;
     const updatedHorse = { id, name, showname, age, stall, riderId };
 
-    fetch(`${config.API_ENDPOINT}/horse/${horseId}`, {
+    fetch(`${config.API_ENDPOINT}/horses/${horseId}`, {
       method: "PATCH",
       body: JSON.stringify(updatedHorse),
       headers: {
-        "content-type": "applicarion/json",
+        "content-type": "application/json",
       },
     })
       .then((res) => {

@@ -93,6 +93,14 @@ class App extends Component {
       </>
     );
   }
+  updateHorse = (updatedHorse) => {
+    const newHorse = this.state.horses.map((horse) =>
+      horse.id === updatedHorse.id ? updatedHorse : horse
+    );
+    this.setState({
+      horses: newHorse,
+    });
+  };
   render() {
     const value = {
       horses: this.state.horses,
