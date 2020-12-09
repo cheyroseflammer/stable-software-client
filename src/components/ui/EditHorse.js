@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import ApiContext from '../../ApiContext';
 import config from '../../config';
 import { Button, Input } from '../../Utilities/Utilities';
-import StableForm from './StableForm';
 
 export default class EditHorse extends Component {
-  static propTypes = {
-    updatedHorse: () => {},
+  static defaultProps = {
+    match: {
+      params: {},
+    },
   };
   // CONTEXT //
   static contextType = ApiContext;
@@ -22,9 +23,11 @@ export default class EditHorse extends Component {
     riderId: '',
   };
   componentDidMount() {
-    const horseId = this.props.id;
+    const { horseId } = this.props.match.params;
     console.log(horseId);
-    fetch(`${config.API_ENDPOINT}/horse/${horseId}`, {
+
+    // console.log(this.context);
+    fetch(`${config.API_ENDPOINT}/horses/${horseId}`, {
       method: 'GET',
     })
       // .then((res) => {
@@ -106,7 +109,7 @@ export default class EditHorse extends Component {
     return (
       <section className="AddHorse">
         <h2>Edit Horse</h2>
-        <StableForm onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <div className="field">
             <label htmlFor="horse-name-input">Name</label>
             <Input
@@ -168,7 +171,7 @@ export default class EditHorse extends Component {
             </select>
           </div>
           <Button type="submit">Post Horse</Button>
-        </StableForm>
+        </form>
       </section>
     );
   }
