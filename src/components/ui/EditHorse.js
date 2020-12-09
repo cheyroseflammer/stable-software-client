@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
-import ApiContext from '../../ApiContext';
-import config from '../../config';
-import { Button, Input } from '../../Utilities/Utilities';
+import React, { Component } from "react";
+import ApiContext from "../../ApiContext";
+import config from "../../config";
+import PropTypes from "prop-types";
 
 export default class EditHorse extends Component {
-  static defaultProps = {
-    match: {
-      params: {},
-    },
+  static propTypes = {
+    match: PropTypes.shape({
+      params: PropTypes.object,
+    }),
+    history: PropTypes.shape({
+      push: PropTypes.func,
+    }),
   };
   // CONTEXT //
   static contextType = ApiContext;
@@ -15,12 +18,12 @@ export default class EditHorse extends Component {
   // SETTING STATE //
   state = {
     error: null,
-    id: '',
-    name: '',
-    showname: '',
-    age: '',
-    stall: '',
-    riderId: '',
+    id: "",
+    name: "",
+    showname: "",
+    age: 1,
+    stall: 1,
+    riderId: "",
   };
   componentDidMount() {
     const { horseId } = this.props.match.params;
@@ -28,13 +31,13 @@ export default class EditHorse extends Component {
 
     // console.log(this.context);
     fetch(`${config.API_ENDPOINT}/horses/${horseId}`, {
-      method: 'GET',
+      method: "GET",
     })
-      // .then((res) => {
-      //   if (!res.ok) return res.json().then((error) => Promise.reject(error));
+      .then((res) => {
+        if (!res.ok) return res.json().then((error) => Promise.reject(error));
 
-      //   return res.json();
-      // })
+        return res.json();
+      })
       .then((responseData) => {
         this.setState({
           id: responseData.id,
@@ -68,16 +71,16 @@ export default class EditHorse extends Component {
   };
   // HANDLE SUBMIT FUNCTION //
   handleSubmit = (e) => {
-    e.preventDeafult();
-    const { horseId } = this.props.match.params.horseId;
+    e.preventDefault();
+    const { horseId } = this.props.match.params;
     const { id, name, showname, age, stall, riderId } = this.state;
     const updatedHorse = { id, name, showname, age, stall, riderId };
 
     fetch(`${config.API_ENDPOINT}/horses/${horseId}`, {
-      method: 'PATCH',
+      method: "PATCH",
       body: JSON.stringify(updatedHorse),
       headers: {
-        'content-type': 'application/json',
+        "content-type": "application/json",
       },
     })
       .then((res) => {
@@ -86,7 +89,7 @@ export default class EditHorse extends Component {
       .then(() => {
         this.resetFields(updatedHorse);
         this.context.updateHorse(updatedHorse);
-        this.props.history.push('/');
+        this.props.history.push("/");
       })
       .catch((error) => {
         console.error(error);
@@ -95,12 +98,12 @@ export default class EditHorse extends Component {
   };
   resetFields = (newFields) => {
     this.setState({
-      id: newFields.id || '',
-      name: newFields.name || '',
-      showname: newFields.showname || '',
-      age: newFields.age || '',
-      stall: newFields.stall || '',
-      riderId: newFields.riderId || '',
+      id: newFields.id || "",
+      name: newFields.name || "",
+      showname: newFields.showname || "",
+      age: newFields.age || "",
+      stall: newFields.stall || "",
+      riderId: newFields.riderId || "",
     });
   };
   render() {
@@ -109,43 +112,43 @@ export default class EditHorse extends Component {
     return (
       <section className="AddHorse">
         <h2>Edit Horse</h2>
-        <form onSubmit={this.handleSubmit}>
+        <form className="form" onSubmit={this.handleSubmit}>
           <div className="field">
             <label htmlFor="horse-name-input">Name</label>
-            <Input
+            <input
               type="text"
-              id="AddHorse-name-input"
-              name="horse-name"
+              id="name"
+              name="name"
               value={name}
               onChange={this.handleChangeName}
             />
           </div>
           <div className="field">
             <label htmlFor="horse-showname-input">Show Name</label>
-            <Input
+            <input
               type="text"
-              id="horse-showname-input"
-              name="horse-showname"
+              id="showname"
+              name="showname"
               value={showname}
               onChange={this.handleChangeShowname}
             />
           </div>
           <div className="field">
             <label htmlFor="horse-age-input">Age</label>
-            <Input
+            <input
               type="text"
-              id="horse-age-input"
-              name="horse-age"
+              id="age"
+              name="age"
               value={age}
               onChange={this.handleChangeAge}
             />
           </div>
           <div className="field">
             <label htmlFor="horse-stall-input">Stall</label>
-            <Input
+            <input
               type="text"
-              id="horse-stall-input"
-              name="horse-stall"
+              id="stall"
+              name="stall"
               value={stall}
               onChange={this.handleChangeStall}
             />
@@ -157,9 +160,9 @@ export default class EditHorse extends Component {
           <div className="field">
             <label htmlFor="horse-rider-select">Rider</label>
             <select
-              id="horse-rider-select"
-              name="horse-rider-id"
               value={riderId}
+              id="riderId"
+              name="riderId"
               onChange={this.handleChangeRiderId}
             >
               <option value={null}>...</option>
@@ -170,7 +173,7 @@ export default class EditHorse extends Component {
               ))}
             </select>
           </div>
-          <Button type="submit">Post Horse</Button>
+          <button type="submit">Post Horse</button>
         </form>
       </section>
     );
