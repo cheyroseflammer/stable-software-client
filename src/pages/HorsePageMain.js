@@ -1,9 +1,9 @@
-import React from 'react';
-import ApiContext from '../ApiContext';
-import Horse from '../components/layout/Horse';
-import { findHorse } from '../helper';
-import { Link } from 'react-router-dom';
-import '../styles/HorsePageMain.css';
+import React from "react";
+import ApiContext from "../ApiContext";
+import Horse from "../components/layout/Horse";
+import { findHorse } from "../helper";
+import { Link } from "react-router-dom";
+import "../styles/HorsePageMain.css";
 
 export default class HorsePageMain extends React.Component {
   static defaultProps = {
@@ -20,7 +20,7 @@ export default class HorsePageMain extends React.Component {
     // const { age, stall } = this.props;
     const { horses = [] } = this.context;
     const { horseId } = this.props.match.params;
-    const horse = findHorse(horses, horseId) || { age: '', stall: '' };
+    const horse = findHorse(horses, horseId) || { age: "", stall: "" };
     // console.log(horse, 'from horse page main');
     // console.log(this.context, 'from horse page main');
     return (
@@ -33,7 +33,9 @@ export default class HorsePageMain extends React.Component {
           showname={horse.showname}
           onDeleteHorse={this.handleDeleteHorse}
         />
-        <Link to={`/edit/${horse.id}`}>Edit Horse</Link>
+        <Link to={`/edit/${horse.id}`}>
+          <button className="delete">Edit Horse</button>
+        </Link>
       </section>
     );
   }

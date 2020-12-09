@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ApiContext from "../../ApiContext";
 import config from "../../config";
 import PropTypes from "prop-types";
+import StableForm from "../ui/StableForm";
 
 export default class EditHorse extends Component {
   static propTypes = {
@@ -110,9 +111,9 @@ export default class EditHorse extends Component {
     const { name, showname, age, stall, riderId } = this.state;
     const { riders = [] } = this.context;
     return (
-      <section className="AddHorse">
+      <section className="UpdateHorse">
         <h2>Edit Horse</h2>
-        <form className="form" onSubmit={this.handleSubmit}>
+        <StableForm className="form" onSubmit={this.handleSubmit}>
           <div className="field">
             <label htmlFor="horse-name-input">Name</label>
             <input
@@ -174,7 +175,7 @@ export default class EditHorse extends Component {
             </select>
           </div>
           <button type="submit">Post Horse</button>
-        </form>
+        </StableForm>
       </section>
     );
   }

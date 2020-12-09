@@ -39,16 +39,14 @@ export default class HorseListMain extends React.Component {
           ))}
         </ul>
         <div className="button-container">
-          <div className="add-horse-button">
-            <AddButton
-              tag={Link}
-              to="/add-horse"
-              type="button"
-              className="add-horse-button"
-            >
-              Add Horse
-            </AddButton>
-          </div>
+          <AddButton
+            tag={Link}
+            to="/add-horse"
+            type="button"
+            className="add-horse-button"
+          >
+            Add Horse
+          </AddButton>
         </div>
       </section>
     );

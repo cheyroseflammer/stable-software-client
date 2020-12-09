@@ -7,10 +7,11 @@
 }
 
 .button-container {
+  margin: 10px 0 0 0px;
   max-width: fit-content;
   background-color: #284d3b;
-  padding: 0px 1px 0px 1px;
   border-radius: 5px;
+  padding: 5px;
 }
 .add-horse-button {
   margin: 20px auto;
@@ -21,7 +22,4 @@
   background-color: #29862e;
   color: white;
   text-decoration: underline;
-}
-a.Button.add-horse-button {
-  font-size: 18px;
 }
