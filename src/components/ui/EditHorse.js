@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import ApiContext from "../../ApiContext";
-import config from "../../config";
-import { Button, Input } from "../../Utilities/Utilities";
-import StableForm from "./StableForm";
+import React, { Component } from 'react';
+import ApiContext from '../../ApiContext';
+import config from '../../config';
+import { Button, Input } from '../../Utilities/Utilities';
+import StableForm from './StableForm';
 
 export default class EditHorse extends Component {
   static propTypes = {
@@ -14,23 +14,24 @@ export default class EditHorse extends Component {
   // SETTING STATE //
   state = {
     error: null,
-    id: "",
-    name: "",
-    showname: "",
-    age: "",
-    stall: "",
-    riderId: "",
+    id: '',
+    name: '',
+    showname: '',
+    age: '',
+    stall: '',
+    riderId: '',
   };
   componentDidMount() {
     const horseId = this.props.id;
-    fetch(`${config.API_ENDPOINT}/horses/${horseId}`, {
-      method: "GET",
+    console.log(horseId);
+    fetch(`${config.API_ENDPOINT}/horse/${horseId}`, {
+      method: 'GET',
     })
-      .then((res) => {
-        if (!res.ok) return res.json().then((error) => Promise.reject(error));
+      // .then((res) => {
+      //   if (!res.ok) return res.json().then((error) => Promise.reject(error));
 
-        return res.json();
-      })
+      //   return res.json();
+      // })
       .then((responseData) => {
         this.setState({
           id: responseData.id,
@@ -70,10 +71,10 @@ export default class EditHorse extends Component {
     const updatedHorse = { id, name, showname, age, stall, riderId };
 
     fetch(`${config.API_ENDPOINT}/horses/${horseId}`, {
-      method: "PATCH",
+      method: 'PATCH',
       body: JSON.stringify(updatedHorse),
       headers: {
-        "content-type": "application/json",
+        'content-type': 'application/json',
       },
     })
       .then((res) => {
@@ -82,7 +83,7 @@ export default class EditHorse extends Component {
       .then(() => {
         this.resetFields(updatedHorse);
         this.context.updateHorse(updatedHorse);
-        this.props.history.push("/");
+        this.props.history.push('/');
       })
       .catch((error) => {
         console.error(error);
@@ -91,12 +92,12 @@ export default class EditHorse extends Component {
   };
   resetFields = (newFields) => {
     this.setState({
-      id: newFields.id || "",
-      name: newFields.name || "",
-      showname: newFields.showname || "",
-      age: newFields.age || "",
-      stall: newFields.stall || "",
-      riderId: newFields.riderId || "",
+      id: newFields.id || '',
+      name: newFields.name || '',
+      showname: newFields.showname || '',
+      age: newFields.age || '',
+      stall: newFields.stall || '',
+      riderId: newFields.riderId || '',
     });
   };
   render() {
