@@ -1,6 +1,6 @@
 .App {
   display: grid;
-  grid-template-areas: 'sidebar header' 'sidebar main';
+  grid-template-areas: "sidebar header" "sidebar main";
   grid-template-columns: 1fr 2.3fr;
   grid-template-rows: 120px 1fr;
   /* min-height: 100vh; */
@@ -29,7 +29,7 @@
 }
 .App-header a {
   color: white;
-  font-family: 'Libre Baskerville', serif;
+  font-family: "Libre Baskerville", serif;
   text-decoration: none;
 }
 .App-main {

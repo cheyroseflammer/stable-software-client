@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import '../../styles/Welcome.css';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+// import '../../styles/Welcome.css';
+import { Route } from "react-router-dom";
+import App from "../../App";
 
 export default class Welcome extends Component {
   render() {
@@ -16,9 +17,11 @@ export default class Welcome extends Component {
           View all your riders in one place with the option to expand and view
           each riders horse and schedule.
         </p>
-        <Link to="/signup">
-          <button>Get Started 🡲</button>
-        </Link>
+        <Route exact path="/" component={App}>
+          {/* <a href="/" className="button">
+            Get Started 🡲
+          </a> */}
+        </Route>
       </div>
     );
   }
