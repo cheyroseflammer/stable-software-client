@@ -28,7 +28,7 @@ import HorsePageNav from "./pages/HorsePageNav";
 // styles
 import "./Main.css";
 
-class App extends Component {
+class Main extends Component {
   state = {
     horses: [],
     riders: [],
@@ -90,6 +90,7 @@ class App extends Component {
         <Route path="/add-rider" component={AddRider} />
         <Route path="/add-horse" component={AddHorse} />
         <Route path="/edit/:horseId" component={EditHorse} />
+        <Route path="/main" component={Main} />
       </>
     );
   }
@@ -132,4 +133,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Main;

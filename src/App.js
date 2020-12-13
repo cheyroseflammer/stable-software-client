@@ -1,26 +1,32 @@
 import React, { Component } from "react";
-import { Link, Route, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
+import AddButton from "./components/ui/AddButton";
+import "./styles/AddButton.css";
+
 // import config from "./config";
 // import ApiContext from "./ApiContext";
 
-import Welcome from "./components/layout/Welcome";
-import Main from "./Main";
+// import Welcome from "./components/layout/Welcome";
+// import Main from "./Main";
 
-export default class App extends Component {
+export default class App extends React.Component {
   render() {
     return (
-      <div>
+      <section>
         <header>
-          <Link to={"/"}>
-            <h1 className="petful">Stable Software</h1>
-          </Link>
+          <h1 className="petful">Stable Software</h1>
         </header>
-
-        <Switch>
-          <Route exact path={"/"} component={Welcome} />
-          <Route exact path={"/main"} component={Main} />
-        </Switch>
-      </div>
+        <div className="button-container">
+          <AddButton
+            tag={Link}
+            to="/main"
+            type="button"
+            className="get-started"
+          >
+            Get started
+          </AddButton>
+        </div>
+      </section>
     );
   }
 }
