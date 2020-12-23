@@ -117,12 +117,12 @@ class Main extends Component {
           <Router>
             <nav className="App-nav">{this.renderNavRoutes()}</nav>
             <header className="App-header">
-              <h1>
+              {/* <h1>
                 <Link to="/">
                   <InlineIcon icon={horseshoeIcon} /> STABLE SOFTWARE{" "}
                   <InlineIcon icon={horseshoeIcon} />
                 </Link>{" "}
-              </h1>
+              </h1> */}
             </header>
             <main className="App-main">{this.renderMainRoutes()}</main>
           </Router>
