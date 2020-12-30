@@ -4,7 +4,7 @@
   grid-template-columns: 1fr 2.3fr;
   grid-template-rows: 120px 1fr;
   /* min-height: 100vh; */
-  background-image: url(./images/grassback.jpg);
+  /* background-image: url(./images/grassback.jpg); */
   height: auto;
   width: 100%;
   background-repeat: no-repeat;

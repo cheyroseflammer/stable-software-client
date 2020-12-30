@@ -1,14 +1,14 @@
 footer {
   text-align: center;
-  padding: 15px;
-  background-color: black;
+  /* padding: 15px; */
+  background-color: transparent;
   position: fixed;
-  padding: 15px 15px 15px 15px;
+  padding: 15px 15px 0 15px;
   bottom: 0;
   width: 100%;
 }
 
-footer span {
-  background-color: black;
-  color: #f4f1de;
+footer h2 {
+  background-color: transparent;
+  color: black;
 }

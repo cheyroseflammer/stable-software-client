@@ -1,33 +1,24 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Link, Route } from "react-router-dom";
-import config from "./config";
-import ApiContext from "./ApiContext";
-import { InlineIcon } from "@iconify/react";
-import horseshoeIcon from "@iconify-icons/mdi/horseshoe";
-
-// layout
-// import Navbar from './components/layout/Navbar';
-import Footer from "./components/layout/Footer";
-// import Signup from './components/layout/Signup';
-// import Login from './components/layout/Login';
+import config from "../../config";
+import ApiContext from "../../ApiContext";
+// import { InlineIcon } from "@iconify/react";
+// import horseshoeIcon from "@iconify-icons/mdi/horseshoe";
 
 // ui
-import AddRider from "./components/ui/AddRider";
-import AddHorse from "./components/ui/AddHorse";
-import EditHorse from "./components/ui/EditHorse";
+import AddRider from "../ui/AddRider";
+import AddHorse from "../ui/AddHorse";
+import EditHorse from "../ui/EditHorse";
 // import Schedule from '../inProgress/Schedule';
 
 // pages
-// import Home from './pages/Home';
-// import RidersList from './pages/RidersList';
-import HorseListMain from "./pages/HorseListMain";
-import HorseListNav from "./pages/HorseListNav";
-import HorsePageMain from "./pages/HorsePageMain";
-import HorsePageNav from "./pages/HorsePageNav";
+import HorseListMain from "../../pages/HorseListMain";
+import HorseListNav from "../../pages/HorseListNav";
+import HorsePageMain from "../../pages/HorsePageMain";
+import HorsePageNav from "../../pages/HorsePageNav";
 
 // styles
-import "./Main.css";
-
+import "../../styles/Main.css";
 class Main extends Component {
   state = {
     horses: [],
@@ -71,7 +62,7 @@ class Main extends Component {
   renderNavRoutes() {
     return (
       <>
-        {["/", "/rider/:riderId"].map((path) => (
+        {["/main", "/rider/:riderId"].map((path) => (
           <Route exact key={path} path={path} component={HorseListNav} />
         ))}
         <Route path="/horse/:horseId" component={HorsePageNav} />
@@ -83,14 +74,13 @@ class Main extends Component {
   renderMainRoutes() {
     return (
       <>
-        {["/", "/rider/:riderId"].map((path) => (
+        {["/main", "/rider/:riderId"].map((path) => (
           <Route exact key={path} path={path} component={HorseListMain} />
         ))}
         <Route path="/horse/:horseId" component={HorsePageMain} />
         <Route path="/add-rider" component={AddRider} />
         <Route path="/add-horse" component={AddHorse} />
         <Route path="/edit/:horseId" component={EditHorse} />
-        <Route path="/main" component={Main} />
       </>
     );
   }
@@ -117,20 +107,15 @@ class Main extends Component {
           <Router>
             <nav className="App-nav">{this.renderNavRoutes()}</nav>
             <header className="App-header">
-              {/* <h1>
-                <Link to="/">
-                  <InlineIcon icon={horseshoeIcon} /> STABLE SOFTWARE{" "}
-                  <InlineIcon icon={horseshoeIcon} />
-                </Link>{" "}
-              </h1> */}
+              <Link to="/main">
+                <h1>Stable Software 🐴 Horse's</h1>
+              </Link>
             </header>
             <main className="App-main">{this.renderMainRoutes()}</main>
           </Router>
-          <Footer />
         </div>
       </ApiContext.Provider>
     );
   }
 }
-
 export default Main;
