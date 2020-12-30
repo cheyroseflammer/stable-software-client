@@ -1,11 +1,11 @@
 .Horse {
   background-color: #010d1e;
-  color: #cacaca;
+  color: black;
   margin-bottom: 8px;
   max-width: 380px;
   padding: 8px 0 8px 8px;
-  /* display: block; */
-  /* position: relative; */
+  display: block;
+  position: relative;
 }
 .horse-info-group {
   display: inline;
@@ -37,7 +37,7 @@
 }
 
 .horse-name a {
-  color: white;
+  color: black;
   display: block;
   text-decoration: none;
   /* padding: 5px ; */
@@ -48,13 +48,13 @@
 
 .horse-age {
   /* bottom: 8px; */
-  color: white;
+  color: black;
   font-size: 14px;
   /*position: absolute;*/
 }
 .horse-stall {
   /* bottom: 8px; */
-  color: white;
+  color: black;
   font-size: 14px;
   /* position: absolute; */
 }

@@ -2,69 +2,46 @@
 
 Manage all your stables information in one user-friendly place!
 
-## Available Scripts
+## Application Link
 
-In the project directory, you can run:
+---
 
-### `npm start`
+Live Front-End: https://stable-software-q59sqek81.vercel.app/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Live Back-End: https://shielded-dusk-25165.herokuapp.com/
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### User Stories
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### As a user
 
-### `npm run build`
+- I want to be able to add a rider to my barn
+- I want to be able to add a horse to my rider
+- I want to be able to filter my horse by rider
+- I want to be able to edit my horses
 
-Builds the app for production to the `build` rider.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technology Used
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Front-End: HTML5, CSS3, JavaScript, & React
 
-### `npm run eject`
+Back-End: : Node.js, Express.js, Mocha, Chai, RESTful API, Postgres
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Running the Application Locally
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Use command line to navigate into the project folder and run the following in terminal
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+##### Local React scripts
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- To install the react project ===> npm install
+- To run react (on port 3000) ===> npm start
+- To run tests ===> npm run test
 
-## Learn More
+##### Local Node scripts
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- To install the node project ===> npm install
+- To migrate the database ===> npm run migrate -- 1
+- To run Node server (on port 8000) ===> npm run dev
+- To run tests ===> npm run test
