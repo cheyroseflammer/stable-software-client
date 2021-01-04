@@ -24,7 +24,6 @@ function Landing() {
         </ul>
 
         <p>
-          Click here{" "}
           <Link to="/main" className="button-welcome">
             {" "}
             Get Started{" "}

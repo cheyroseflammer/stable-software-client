@@ -30,7 +30,7 @@
 }
 
 .button-wrapper {
-  margin: 0 0 0 140px;
+  margin: 0 0 0 80px;
   max-width: fit-content;
   background-color: #284d3b;
   border-radius: 5px;
@@ -56,4 +56,17 @@ ul {
 
 li {
   padding: 5px;
+}
+
+@media only screen and (max-device-width: 480px) {
+  .rider-link {
+    font-size: smaller;
+  }
+  .button-wrapper {
+    max-width: fit-content;
+    background-color: #284d3b;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: small;
+  }
 }

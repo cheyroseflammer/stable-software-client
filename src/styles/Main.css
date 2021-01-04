@@ -23,12 +23,12 @@
   /* background-color: #f4f1de; */
   color: #bdbdbd;
   grid-area: header;
-  padding-left: 16px;
+  /* padding-left: 16px; */
   padding-top: 32px;
   font-size: larger;
 }
 .App-header a {
-  color: white;
+  color: black;
   font-family: "Libre Baskerville", serif;
   text-decoration: none;
 }
@@ -41,4 +41,25 @@
 
 .App-main h2 {
   color: white;
+}
+
+@media only screen and (max-device-width: 480px) {
+  .App {
+    display: grid;
+    grid-template-areas: "sidebar header" "sidebar main";
+    grid-template-columns: 1fr 1.3fr;
+    grid-template-rows: 120px 1fr;
+    /* min-height: 100vh; */
+    /* background-image: url(./images/grassback.jpg); */
+    height: auto;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .App-main {
+    /* background-color: #f4f1de; */
+    grid-area: main;
+    height: calc(80vh - 100px);
+    overflow: auto;
+  }
 }
