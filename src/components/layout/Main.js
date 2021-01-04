@@ -108,7 +108,7 @@ class Main extends Component {
             <nav className="App-nav">{this.renderNavRoutes()}</nav>
             <header className="App-header">
               <Link to="/main">
-                <h1>Stable Software 🐴 Horse's</h1>
+                <h1>Stable Software 🐴</h1>
               </Link>
             </header>
             <main className="App-main">{this.renderMainRoutes()}</main>

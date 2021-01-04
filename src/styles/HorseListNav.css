@@ -60,13 +60,16 @@ li {
 
 @media only screen and (max-device-width: 480px) {
   .rider-link {
-    font-size: smaller;
+    font-size: 15px;
   }
   .button-wrapper {
     max-width: fit-content;
     background-color: #284d3b;
     border-radius: 5px;
     padding: 5px;
-    font-size: small;
+    font-size: 15px;
+  }
+  ul {
+    padding-left: 20%;
   }
 }

@@ -7,7 +7,7 @@ function Landing() {
   return (
     <div className="container">
       <div className="welcome-text">
-        <h1>Welcome to Stable Software 🐴 Horse's</h1>
+        <h1>Welcome to Stable Software 🐴</h1>
         <h3>Manage all your stables information in one user-friendly place!</h3>
         <ul>
           <li>
