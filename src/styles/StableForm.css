@@ -45,3 +45,24 @@
   background-color: #29862e;
   color: white;
 }
+
+@media all and (max-device-width: 700px) {
+  .App-nav {
+    background-color: red;
+    grid-area: sidebar;
+    width: 100px;
+  }
+  .App {
+    display: grid;
+    grid-template-areas: "sidebar header" "sidebar main";
+    grid-template-columns: 0.5fr 2.3fr;
+    grid-template-rows: 120px 1fr;
+  }
+  .Stable-form input,
+  .Stable-form textarea,
+  .Stable-form select {
+    font-size: 14px;
+    padding: 8px;
+    width: 100%;
+  }
+}
