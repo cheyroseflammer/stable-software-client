@@ -10,9 +10,15 @@ import "../styles/AddButton.css";
 // import horseIcon from "@iconify-icons/mdi/horse";
 
 export default class HorseListMain extends React.Component {
+  state = {
+    shown: true,
+  };
   static defaultProps = {
     match: {
       params: {},
+    },
+    history: {
+      goBack: () => {},
     },
   };
   static contextType = ApiContext;
@@ -23,6 +29,11 @@ export default class HorseListMain extends React.Component {
     const horsesForRider = getHorsesForRider(horses, riderId);
     return (
       <section className="HorseListMain">
+        <div>
+          <AddButton tag={Link} to="/main" type="button">
+            Back
+          </AddButton>
+        </div>
         <ul>
           {horsesForRider.map((horse, index) => (
             <li key={horse.id}>

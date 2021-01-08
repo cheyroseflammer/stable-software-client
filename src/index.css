@@ -56,6 +56,13 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
+/* body {
+  text-align: center;
+}
+form {
+  display: inline-block;
+  margin-top: 10%;
+} */
 .button-welcome:hover {
   background-color: #555;
   color: white;
