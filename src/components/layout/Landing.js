@@ -1,7 +1,5 @@
 import React from "react";
-import { Switch, Route, Link } from "react-router-dom";
-// import Main from "./Main";
-// import AddButton from "./components/ui/AddButton";
+import { Link } from "react-router-dom";
 
 function Landing() {
   return (

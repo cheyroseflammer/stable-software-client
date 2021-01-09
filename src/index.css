@@ -42,7 +42,6 @@ body {
   list-style-type: disc !important;
   text-align: left;
   padding: 15px 0 15px 25px;
-  /* width: 50%; */
 }
 .button-welcome {
   border-radius: 15px;
@@ -56,13 +55,7 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
-/* body {
-  text-align: center;
-}
-form {
-  display: inline-block;
-  margin-top: 10%;
-} */
+
 .button-welcome:hover {
   background-color: #555;
   color: white;

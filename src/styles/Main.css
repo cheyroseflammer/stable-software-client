@@ -3,8 +3,7 @@
   grid-template-areas: "sidebar header" "sidebar main";
   grid-template-columns: 1fr 2.3fr;
   grid-template-rows: 120px 1fr;
-  /* min-height: 100vh; */
-  /* background-image: url(./images/grassback.jpg); */
+
   height: auto;
   width: 100%;
   background-repeat: no-repeat;
@@ -12,7 +11,6 @@
 }
 
 .App-nav {
-  /* background-color: #f4f1de; */
   color: #fff;
   grid-area: sidebar;
   height: 100vh;
@@ -21,7 +19,6 @@
 }
 
 .App-header {
-  /* background-color: #f4f1de; */
   color: #bdbdbd;
   grid-area: header;
   /* padding-left: 16px; */
@@ -35,7 +32,6 @@
   text-decoration: none;
 }
 .App-main {
-  /* background-color: #f4f1de; */
   grid-area: main;
   height: calc(100vh - 120px);
   overflow: auto;
@@ -51,15 +47,13 @@
     grid-template-areas: "sidebar header" "sidebar main";
     grid-template-columns: 1fr 1.3fr;
     grid-template-rows: 120px 1fr;
-    /* min-height: 100vh; */
-    /* background-image: url(./images/grassback.jpg); */
+
     height: auto;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
   }
   .App-main {
-    /* background-color: #f4f1de; */
     grid-area: main;
     height: calc(80vh - 100px);
     overflow: auto;

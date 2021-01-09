@@ -5,16 +5,12 @@ import { countHorsesForRider } from "../helper";
 import AddButton from "../components/ui/AddButton";
 import "../styles/HorseListNav.css";
 import "../styles/AddButton.css";
-// import { InlineIcon } from "@iconify/react";
-// import horseHuman from "@iconify-icons/mdi/horse-human";
 
 export default class HorseListNav extends React.Component {
   static contextType = ApiContext;
 
   render() {
     const { riders = [], horses = [] } = this.context;
-    // console.log('horse, where?', horses);
-    // console.log('riders, where?', riders);
     return (
       <div className="HorseListNav">
         <ul>
@@ -24,7 +20,6 @@ export default class HorseListNav extends React.Component {
                 <span className="num-horses">
                   {countHorsesForRider(horses, rider.id)}
                 </span>
-                {/* <InlineIcon icon={horseHuman} /> */}
                 {rider.name}
               </NavLink>
             </li>

@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import config from "../../config";
 import { Button, Input } from "../../Utilities/Utilities";
-// import TokenService from "../../services/token-service";
 import ApiContext from "../../ApiContext";
 import StableForm from "./StableForm";
 import "../../styles/AddRider.css";
-// import { render } from 'react-dom';
 
 export default class AddRider extends Component {
   static defaultProps = {
@@ -24,7 +22,6 @@ export default class AddRider extends Component {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        // Authorization: `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify(rider),
     })

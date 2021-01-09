@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import ApiContext from "../../ApiContext";
 import { Button, Input } from "../../Utilities/Utilities";
-import AddButton from "../ui/AddButton";
 import config from "../../config";
-// import TokenService from "../../services/token-service";
 import StableForm from "./StableForm";
 
 export default class AddHorse extends Component {
@@ -28,7 +25,6 @@ export default class AddHorse extends Component {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        // Authorization: `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify(newHorse),
     })

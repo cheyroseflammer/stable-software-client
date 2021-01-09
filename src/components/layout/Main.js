@@ -2,14 +2,11 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 import config from "../../config";
 import ApiContext from "../../ApiContext";
-// import { InlineIcon } from "@iconify/react";
-// import horseshoeIcon from "@iconify-icons/mdi/horseshoe";
 
 // ui
 import AddRider from "../ui/AddRider";
 import AddHorse from "../ui/AddHorse";
 import EditHorse from "../ui/EditHorse";
-// import Schedule from '../inProgress/Schedule';
 
 // pages
 import HorseListMain from "../../pages/HorseListMain";

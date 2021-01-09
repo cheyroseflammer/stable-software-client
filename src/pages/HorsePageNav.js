@@ -20,9 +20,7 @@ export default class HorsePageNav extends React.Component {
     const { horses, riders } = this.context;
     const { horseId } = this.props.match.params;
     const horse = findHorse(horses, horseId) || {};
-    // console.log(horse, 'what the heck??');
     const rider = findRider(riders, horse.riderId);
-    // console.log(rider, 'what the heck rider??');
     return (
       <div className="HorsePageNav">
         <AddButton

@@ -28,9 +28,6 @@ export default class EditHorse extends Component {
   };
   componentDidMount() {
     const { horseId } = this.props.match.params;
-    console.log(horseId);
-
-    // console.log(this.context);
     fetch(`${config.API_ENDPOINT}/horses/${horseId}`, {
       method: "GET",
     })
@@ -154,10 +151,6 @@ export default class EditHorse extends Component {
               onChange={this.handleChangeStall}
             />
           </div>
-          {/* <div className="field">
-            <label htmlFor="horse-breed-input">Breed</label>
-            <Input type="text" id="horse-breed-input" />
-          </div> */}
           <div className="field">
             <label htmlFor="horse-rider-select">Rider</label>
             <select
