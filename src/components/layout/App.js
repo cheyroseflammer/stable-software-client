@@ -1,12 +1,15 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import config from "../../config";
 import ApiContext from "../../ApiContext";
+
+import Landing from "./Landing";
 
 // ui
 import AddRider from "../ui/AddRider";
 import AddHorse from "../ui/AddHorse";
 import EditHorse from "../ui/EditHorse";
+import Grass from "../ui/Grass";
 
 // pages
 import HorseListMain from "../../pages/HorseListMain";
@@ -16,7 +19,7 @@ import HorsePageNav from "../../pages/HorsePageNav";
 
 // styles
 import "../../styles/Main.css";
-class Main extends Component {
+class App extends Component {
   state = {
     horses: [],
     riders: [],
@@ -109,10 +112,15 @@ class Main extends Component {
               </Link>
             </header>
             <main className="App-main">{this.renderMainRoutes()}</main>
+            <Switch>
+              <Route exact path="/" component={Landing} />
+              {/* <Route path="/main" component={Main} /> */}
+            </Switch>
           </Router>
+          <Grass />
         </div>
       </ApiContext.Provider>
     );
   }
 }
-export default Main;
+export default App;

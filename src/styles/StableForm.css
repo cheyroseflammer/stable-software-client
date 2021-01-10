@@ -48,9 +48,9 @@
 
 @media all and (max-device-width: 700px) {
   .App-nav {
-    background-color: red;
+    /* background-color: red; */
     grid-area: sidebar;
-    width: 100px;
+    width: 150px;
   }
   .App {
     display: grid;
