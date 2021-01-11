@@ -6,7 +6,7 @@ Manage all your stables information in one user-friendly place!
 
 ---
 
-Live Front-End: https://stable-software-q59sqek81.vercel.app/
+Live Front-End: https://stable-software.vercel.app/
 
 Server Back-End: https://shielded-dusk-25165.herokuapp.com/
 
