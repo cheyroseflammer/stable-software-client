@@ -39,3 +39,25 @@ Using your command line to navigate to the the projects folder, run the followin
 - To install the react project: npm install
 - To run react (on port 3000): npm start
 - To run tests: npm run test
+
+## Screen Shots
+
+### Landing Page
+
+![landing-page](screenshots\LandingPage.png)
+
+### Main
+
+![landing-page](screenshots\Main.png)
+
+### Add Form
+
+![landing-page](screenshots\AddHorse.png)
+
+### Rider Filter Nav
+
+![landing-page](screenshots\NavFilter.png)
+
+### Horse Expanded View
+
+![landing-page](screenshots\Horse.png)
