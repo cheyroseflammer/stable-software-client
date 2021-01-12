@@ -44,20 +44,20 @@ Using your command line to navigate to the the projects folder, run the followin
 
 ### Landing Page
 
-![landing-page](screenshots\LandingPage.png)
+![landing-page](screenshots/LandingPage.png)
 
 ### Main
 
-![landing-page](screenshots\Main.png)
+![landing-page](screenshots/Main.png)
 
 ### Add Form
 
-![landing-page](screenshots\AddHorse.png)
+![landing-page](screenshots/AddHorse.png)
 
 ### Rider Filter Nav
 
-![landing-page](screenshots\NavFilter.png)
+![landing-page](screenshots/NavFilter.png)
 
 ### Horse Expanded View
 
-![landing-page](screenshots\Horse.png)
+![landing-page](screenshots/Horse.png)
