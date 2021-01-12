@@ -48,16 +48,13 @@ Using your command line to navigate to the the projects folder, run the followin
 
 ### Main
 
-![landing-page](screenshots/Main.png)
+![Main-route](screenshots/Main.png)
 
 ### Add Form
 
-![landing-page](screenshots/AddHorse.png)
+![add-form](screenshots/AddHorse.png)
 
-### Rider Filter Nav
-
-![landing-page](screenshots/NavFilter.png)
 
 ### Horse Expanded View
 
-![landing-page](screenshots/Horse.png)
+![horse-view](screenshots/Horse.png)
